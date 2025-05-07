@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    #gallery { 
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      padding: 16px;
+    }
+    .photo-card { 
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .photo-card img { 
+      width: 100%;
+      display: block;
+    }
+    .photo-info { padding: 8px; }
+    .photo-info h3 { margin: 0 0 8px 0; font-size: 1.1rem; }
+    .photo-info p { margin: 0; font-size: 0.9rem; color: #555; }
+  </style>
+</head>
+<body>
+  <div id="gallery"></div>
+  <script>
+    async function loadGallery() {
+      try {
+        const response = await fetch('images.json');
+        const images = await response.json();
+        const gallery = document.getElementById('gallery');
+        images.forEach(img => {
+          const card = document.createElement('div');
+          card.className = 'photo-card';
+
+          const imageElement = document.createElement('img');
+          imageElement.src = img.url;
+          imageElement.alt = img.name;
+
+          const info = document.createElement('div');
+          info.className = 'photo-info';
+
+          const title = document.createElement('h3');
+          title.textContent = img.name;
+
+          const desc = document.createElement('p');
+          desc.textContent = img.description;
+
+          info.appendChild(title);
+          info.appendChild(desc);
+          card.appendChild(imageElement);
+          card.appendChild(info);
+          gallery.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Could not load images.json', err);
+      }
+    }
+    loadGallery();
+  </script>
+</body>
+</html>
