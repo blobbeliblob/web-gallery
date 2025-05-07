@@ -1,2 +1,2 @@
 # web-gallery
- Photo Gallery
+Viewable [here](https://blobbeliblob.github.io/web-gallery/)
