@@ -21,11 +21,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderGallery(data) {
     gallery.innerHTML = '';
-    data.forEach(img => {
+    data.forEach((img, index) => {
       const item = document.createElement('div');
       item.className = 'photo-item';
       item.dataset.name = img.name.toLowerCase();
       item.dataset.desc = img.description.toLowerCase();
+
+      // ─── Assign mosaic spans ───
+      // Example logic: every 7th image is 2×2, every 5th is 2×1, every 3rd is 1×2
+      if (index % 7 === 0) {
+        item.classList.add('span2x2');
+      } else if (index % 5 === 0) {
+        item.classList.add('span2x2');
+      } else if (index % 3 === 0) {
+        // item.classList.add('span1x2');
+      }
 
       const card = document.createElement('div');
       card.className = 'photo-card';

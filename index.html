@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Photo Gallery</title>
-  <!-- Import slick font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Import Roboto and Material Icons -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,14 +13,14 @@
   <header class="gallery-header">
     <h1>Photo Gallery</h1>
     <div class="filter-container">
-      <input type="text" id="search-input" placeholder="Search images...">
+      <input type="text" id="search-input" placeholder="Search images..." aria-label="Search images">
     </div>
   </header>
 
-  <div id="gallery"></div>
+  <main id="gallery"></main>
 
   <div id="lightbox" class="lightbox hidden">
-    <span id="lightbox-close" class="lightbox-close">&times;</span>
+    <span id="lightbox-close" class="lightbox-close" role="button" aria-label="Close lightbox">&times;</span>
     <img id="lightbox-img" class="lightbox-img" alt="" />
     <div id="lightbox-caption" class="lightbox-caption"></div>
   </div>
