@@ -1,30 +1,28 @@
-/* ─── Material Design variables ─── */
 :root {
   /* Primary / Accent */
-  --md-primary: #2196f3;
-  --md-primary-variant: #1976d2;
+  --primary: #FACC15;
 
   /* Surfaces / Background */
-  --md-surface: #F0F0F0;
-  --md-background: #F0F0F0;
+  --surface: #000000;
+  --background: #000000;
 
   /* Text shades */
-  --md-on-surface: #e0e0e0;
-  --md-on-background: #ffffff;
-  --md-text-secondary: #b0bec5;
+  --text-primary: #f5f5f5;
+  --text-secondary: #9ca3af;
+
+  /* Search field */
+  --search-background: #111111;
+  --search-selected: #111111;
 
   /* Elevation shadows (dark-theme) */
-  --elevation-low: 0 1px 3px rgba(0, 0, 0, 0.3),
-    0 1px 1px rgba(0, 0, 0, 0.24);
-  --elevation-medium: 0 4px 6px rgba(0, 0, 0, 0.4),
-    0 1px 3px rgba(0, 0, 0, 0.24);
-  --elevation-high: 0 10px 20px rgba(0, 0, 0, 0.5),
-    0 6px 6px rgba(0, 0, 0, 0.23);
+  --elevation-low: 0 1px 3px rgba(255, 255, 255, 0.3),
+    0 1px 1px rgba(255, 255, 255, 0.24);
+  --elevation-medium: 0 1px 3px rgba(255, 255, 255, 0.4),
+    0 1px 3px rgba(255, 255, 255, 0.24);
 }
 
-/* ─── Base typography & reset ─── */
 html {
-  font-size: 10px; /* 1rem = 10px */
+  font-size: 10px;
 }
 
 *,
@@ -36,23 +34,23 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--md-background);
-  color: var(--md-on-surface);
+  background-color: var(--background);
+  color: var(--text-primary);
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─── Header (App Bar style) ─── */
+/* header */
 .gallery-header {
   position: sticky;
   top: 0;
-  background-color: var(--md-surface);
+  background-color: var(--surface);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem 0 0.5rem;
-  box-shadow: var(--elevation-medium);
+  box-shadow: var(--elevation-low);
   z-index: 10;
 }
 
@@ -60,7 +58,7 @@ body {
   margin: 0;
   font-size: 2rem;
   font-weight: 500;
-  color: var(--md-primary);
+  color: var(--primary);
 }
 
 .filter-container {
@@ -75,23 +73,23 @@ body {
   font-weight: 400;
   border: none;
   border-radius: 4px;
-  background-color: #F0F0F0;
-  color: var(--md-on-surface);
+  background-color: var(--search-background);
+  color: var(--text-primary);
   box-shadow: var(--elevation-low);
   transition: box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 #search-input::placeholder {
-  color: var(--md-text-secondary);
+  color: var(--text-secondary);
 }
 
 #search-input:focus {
   outline: none;
-  box-shadow: var(--elevation-high);
-  background-color: #4a4a4a;
+  box-shadow: var(--elevation-medium);
+  background-color: var(--search-selected);
 }
 
-/* ─── Gallery (CSS Grid mosaic) ─── */
+/* gallery */
 main#gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -109,11 +107,10 @@ main#gallery {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ─── Card styles (Material Elevated Card) ─── */
+/* elevated card */
 .photo-card {
-  background-color: var(--md-surface);
+  background-color: var(--surface);
   border-radius: 4px;
-  box-shadow: var(--elevation-low);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   width: 100%;
   height: 100%;
@@ -121,7 +118,6 @@ main#gallery {
 
 .photo-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--elevation-medium);
 }
 
 .photo-card img {
@@ -137,7 +133,7 @@ main#gallery {
   transform: scale(1.02);
 }
 
-/* ─── Define span classes for a mosaic effect ─── */
+/* mosaics */
 .photo-item.span2x2 {
   grid-column: span 2;
   grid-row: span 2;
@@ -151,7 +147,7 @@ main#gallery {
   grid-row: span 2;
 }
 
-/* ─── Caption below (on-surface text) ─── */
+/* captions */
 .photo-info {
   margin-top: 8px;
   padding: 0 8px 8px;
@@ -162,18 +158,18 @@ main#gallery {
   margin: 0 0 4px;
   font-size: 1.4rem;
   font-weight: 500;
-  color: var(--md-on-surface);
+  color: var(--text-primary);
 }
 
 .photo-info p {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 300;
-  color: var(--md-text-secondary);
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
-/* ─── Lightbox overlay (full-screen) ─── */
+/* lightbox */
 .lightbox {
   position: fixed;
   top: 0;
@@ -197,32 +193,31 @@ main#gallery {
   top: 1.5rem;
   right: 1.5rem;
   font-size: 3.2rem;
-  color: var(--md-on-surface);
+  color: var(--text-primary);
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .lightbox-close:hover {
-  color: var(--md-primary);
+  color: var(--primary);
 }
 
 .lightbox-img {
   max-width: 90%;
   max-height: 80%;
   border-radius: 4px;
-  box-shadow: var(--elevation-high);
   margin-bottom: 1rem;
 }
 
 .lightbox-caption {
   font-size: 1.6rem;
-  color: var(--md-on-surface);
+  color: var(--text-primary);
   text-align: center;
   max-width: 90%;
   padding: 0 1rem;
 }
 
-/* ─── Responsive breakpoints ─── */
+/* stuff */
 @media (max-width: 1024px) {
   main#gallery {
     column-count: 3;

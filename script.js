@@ -27,14 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
       item.dataset.name = img.name.toLowerCase();
       item.dataset.desc = img.description.toLowerCase();
 
-      // ─── Assign mosaic spans ───
-      // Example logic: every 7th image is 2×2, every 5th is 2×1, every 3rd is 1×2
       if (index % 7 === 0) {
         item.classList.add('span2x2');
       } else if (index % 5 === 0) {
         item.classList.add('span2x2');
-      } else if (index % 3 === 0) {
-        // item.classList.add('span1x2');
       }
 
       const card = document.createElement('div');
@@ -65,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Lightbox functions */
+  // lightbox
   function openLightbox(img) {
     lightboxImg.src = 'pics/full/' + img.url;
     lightboxImg.alt = img.name;
@@ -83,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === lightbox) closeLightbox();
   });
 
-  /* Filter / Search logic */
+  // filter / search
   searchInput.addEventListener('input', () => {
     const term = searchInput.value.trim().toLowerCase();
     const filtered = imagesData.filter(img => {
