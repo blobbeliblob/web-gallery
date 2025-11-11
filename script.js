@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = 'photo-card';
 
       const imageElement = document.createElement('img');
-      imageElement.src = img.url;
+      imageElement.src = 'pics/small/' + img.url;
       imageElement.alt = img.name;
       imageElement.loading = 'lazy';
       imageElement.addEventListener('click', () => openLightbox(img));
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Lightbox functions */
   function openLightbox(img) {
-    lightboxImg.src = img.url;
+    lightboxImg.src = 'pics/full/' + img.url;
     lightboxImg.alt = img.name;
     lightboxCaption.textContent = img.name + ' - ' + img.description;
     lightbox.classList.remove('hidden');
