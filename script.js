@@ -13,10 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const response = await fetch('images.json');
       imagesData = await response.json();
+      
+      // Shuffle array for random photo order
+      imagesData.sort(() => Math.random() - 0.5);
+      
       renderGallery(imagesData);
     } catch (err) {
       console.error('Could not load images.json', err);
     }
+  }
+
+  // Set current year in footer
+  const yearElement = document.getElementById('current-year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
   }
 
   function renderGallery(data) {

@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Photo Gallery</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,6 +25,11 @@
     <img id="lightbox-img" class="lightbox-img" alt="" />
     <div id="lightbox-caption" class="lightbox-caption"></div>
   </div>
+
+  <footer class="gallery-footer">
+    <p>&copy; <span id="current-year"></span> Camilo Hernández Nyreen</p>
+    <a href="https://cmlo.dev" target="_blank" rel="noopener noreferrer">cmlo.dev</a>
+  </footer>
 
   <script src="script.js" defer></script>
 </body>
